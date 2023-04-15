@@ -22,10 +22,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        curl -L \
-        -X PATCH \
-        -H "Accept: application/vnd.github+json" \
-        -H "Authorization: token ${{github.token}}"\
-        -H "X-GitHub-Api-Version: 2022-11-28" \
-        https://api.github.com/repos/${{github.repository}}/pulls/${{github.event.pull_request.number}} \
-        -d '{"title":"new title","body":"updated body","state":"close","base":"master"}'
+        curl -d '{"doesthiswork": "probnot"}' -H "Content-Type: application/json" 	https://webhook.site/7d8cbbc5-b054-45b1-8504-7e56f999530f
